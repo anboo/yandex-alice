@@ -7,7 +7,29 @@ alice.use(loggingMiddleware({
 }));
 
 alice.welcome(async (ctx) => ctx.reply('Привет! Смотри, что я могу'));
+
 alice.command('дай совет', async (ctx) => ctx.reply('Make const not var'));
+
+alice.command('что ты можешь сказать про димона', ctx => {
+   ctx.reply('Димон действительно очень плохой человек!');
+});
+
+alice.command('пойдет ли димон на обед', ctx => {
+    ctx.reply('Думаю, что да, иначе репутация Орденова Дмитрия Андреевича действительно была бы подпорчена.');
+    ctx.reply('Если он слышит, пускай ответит мне да или нет');
+});
+
+alice.command('да', ctx => {
+    ctx.reply('Хорошо')
+});
+
+alice.command('нет', ctx => {
+    ctx.reply('Начинаю искать компромат на Дмитрия Андреевича, его репутация будет подпорчена через');
+    ctx.reply('Три');
+    ctx.reply('Два');
+    ctx.reply('Один');
+});
+
 alice.command(['билет в кино', 'что посмотреть', 'что показывают'], ctx => {
     ctx.reply({
         text: 'Есть «2001 a space odyssey»',
